@@ -4,6 +4,7 @@ namespace common\models;
 
 use common\models\queries\ProductQuery;
 use Yii;
+use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
@@ -16,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property integer $price
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $created_by
  */
 class Product extends ActiveRecord
 {
@@ -36,7 +38,8 @@ class Product extends ActiveRecord
             [['title'], 'required'],
             [['title'], 'string', 'max' => 255],
             [['description'], 'string'],
-            [['price'], 'integer', 'min' => 0]
+            [['price'], 'integer', 'min' => 0],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
 
@@ -46,7 +49,11 @@ class Product extends ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::class
+            TimestampBehavior::class,
+            [
+                'class' => BlameableBehavior::class,
+                'updatedByAttribute' => false
+            ]
         ];
     }
 
@@ -59,7 +66,10 @@ class Product extends ActiveRecord
             'id'          => Yii::t('app', 'ID'),
             'title'       => Yii::t('app', 'Название'),
             'description' => Yii::t('app', 'Описание'),
-            'price'       => Yii::t('app', 'Цена')
+            'price'       => Yii::t('app', 'Цена'),
+            'created_at'  => Yii::t('app', 'Дата и время создания'),
+            'updated_at'  => Yii::t('app', 'Дата и время обновления'),
+            'created_by'  => Yii::t('app', 'Автор записи')
         ];
     }
 

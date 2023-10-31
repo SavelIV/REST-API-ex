@@ -12,7 +12,8 @@ class m231030_213523_create_product extends Migration
             'description' => $this->string(),
             'price'       => $this->integer(),
             'created_at'  => $this->integer()->notNull(),
-            'updated_at'  => $this->integer()->notNull()
+            'updated_at'  => $this->integer()->notNull(),
+            'created_by'  => $this->integer()
         ]);
 
         $time = time();
@@ -28,13 +29,16 @@ class m231030_213523_create_product extends Migration
                 ['Товар №6', 'Описание товара №6', '666', $time, $time],
                 ['Товар №7', 'Описание товара №7', '777', $time, $time],
                 ['Товар №8', 'Описание товара №8', '888', $time, $time],
-                ['Товар №9', 'Описание товара №9', '999', $time, $time],
+                ['Товар №9', 'Описание товара №9', '999', $time, $time]
             ]
         );
+
+        $this->addForeignKey('fk-product-user', 'product', 'created_by', 'user', 'id', 'CASCADE', 'RESTRICT');
     }
 
     public function safeDown()
     {
+        $this->dropForeignKey('fk-product-user', 'product');
         $this->dropTable('product');
     }
 }
