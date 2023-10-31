@@ -4,13 +4,22 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = Yii::t('app', 'О проекте');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php echo Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
+    <p><?php echo Yii::t('app', 'Простое веб-приложение "Каталог товаров" через REST API, с использованием фреймворка Yii2.'); ?></p>
+    <p><?php echo Yii::t('app', 'Приложение позволяет просматривать список товаров, добавлять новые товары и редактировать существующие. Для каждого товара доступны следующие данные:'); ?></p>
 
-    <code><?= __FILE__ ?></code>
+    <p>-<?php echo Yii::t('app', 'Название товара'); ?></p>
+    <p>-<?php echo Yii::t('app', 'Описание товара'); ?></p>
+    <p>-<?php echo Yii::t('app', 'Цена товара'); ?></p>
+
+    <p><?php echo Yii::t('app', 'Приложение разделено на отдельные модули (каталог товаров, административная панель, само АПИ).'); ?></p>
+    <p><?php echo Yii::t('app', 'Каталог товаров отображает список всех товаров с возможностью сортировки и поиска по названию.'); ?></p>
+    <p><?php echo Yii::t('app', 'При добавлении и редактировании товара через административную панель происходит валидация данных.'); ?></p>
+    <p><?php echo Yii::t('app', 'Административная панель доступна только авторизованным пользователям. Логин/пароль: admin/admin'); ?></p>
+
 </div>

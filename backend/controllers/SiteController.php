@@ -9,9 +9,6 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 
-/**
- * Site controller
- */
 class SiteController extends Controller
 {
     /**
@@ -25,21 +22,21 @@ class SiteController extends Controller
                 'rules' => [
                     [
                         'actions' => ['login', 'error'],
-                        'allow' => true,
+                        'allow' => true
                     ],
                     [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
+                        'roles' => ['@']
+                    ]
+                ]
             ],
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+                    'logout' => ['post']
+                ]
+            ]
         ];
     }
 
@@ -50,14 +47,12 @@ class SiteController extends Controller
     {
         return [
             'error' => [
-                'class' => \yii\web\ErrorAction::class,
-            ],
+                'class' => \yii\web\ErrorAction::class
+            ]
         ];
     }
 
     /**
-     * Displays homepage.
-     *
      * @return string
      */
     public function actionIndex()
@@ -66,8 +61,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
-     *
      * @return string|Response
      */
     public function actionLogin()
@@ -91,8 +84,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Logout action.
-     *
      * @return Response
      */
     public function actionLogout()
