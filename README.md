@@ -10,6 +10,9 @@
 $ vagrant up
 ```
 ---
+Возможно, придется добавить свой Personal Access Token от Githab-а здесь:
+vagrant/config/vagrant-local.example.yml
+
 Теперь сайт доступен по адресу
 [192.168.83.138](http://rest-api.local)
 
