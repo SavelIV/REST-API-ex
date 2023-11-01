@@ -39,6 +39,8 @@ Backend URL: http://backend.rest-api.local
 * password: `admin`
 
 API URL: http://api.rest-api.local
+-----
+Для работы с API:
 
 **GET** http://api.rest-api.local/products
 
