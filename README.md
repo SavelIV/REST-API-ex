@@ -1,5 +1,6 @@
 Установка
 ------------
+Необходим установленный Vagrant и Virtualbox.
 
 1) Склонировать репозиторий
 
@@ -11,6 +12,14 @@ $ vagrant up
 ---
 Теперь сайт доступен по адресу
 [192.168.83.138](http://rest-api.local)
+
+( Если миграции не применились:
+-в терминале
+  vagrant ssh
+ -заходим в папку проекта
+  cd /app
+  php yii migrate
+на вопрос Apply the above migrations? (yes|no): отвечаем yes )
 
 Frontend URL: http://rest-api.local
 
