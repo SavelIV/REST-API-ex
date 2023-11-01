@@ -14,12 +14,18 @@ $ vagrant up
 [192.168.83.138](http://rest-api.local)
 
 ( Если миграции не применились:
--в терминале
-  vagrant ssh
- -заходим в папку проекта
-  cd /app
-  php yii migrate
-на вопрос Apply the above migrations? (yes|no): отвечаем yes )
+
+-в терминале:
+  * vagrant ssh
+
+ -заходим в папку проекта:
+  * cd /app
+  * php yii migrate
+    
+на вопрос:
+* Apply the above migrations? (yes|no):
+  
+отвечаем yes )
 
 Frontend URL: http://rest-api.local
 
